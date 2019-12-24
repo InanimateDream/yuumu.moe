@@ -1,0 +1,8 @@
+.idea/
+/dist
+/node_modules
+/pkg
+/target
+/static/assets/extern/*
+/static/styles/*.css
+/static/styles/*.css.map

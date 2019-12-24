@@ -1,0 +1,56 @@
+@import "common";
+
+header {
+  height: @header-height;
+  padding-left: @header-padding-left;
+  padding-right: @header-padding-right;
+
+  background-color: @header-color;
+  box-shadow: 0 2px 3px 0.5px @shadow-color;
+  text-shadow: 1px 1px 1px @shadow-color;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav-title {
+  font-family: LeiKaiSho, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .title {
+    font-size: 3.5vh;
+    color: @yuyuko-dress;
+  }
+
+  .subtitle {
+    font-size: 1.6vh;
+    color: @yuyuko-hat-logo;
+  }
+
+  .placeholder {
+    height: 0.8vh;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  .button {
+    font-family: Yuyuko Script, serif;
+    font-size: 2.8vh;
+    display: block;
+    .text-center;
+    width: @header-button-width;
+  }
+  .button:hover {
+    .active-page
+  }
+  .button:active {
+    color: @active-color;
+  }
+}
+

@@ -1,0 +1,58 @@
+@font: "../assets/font";
+@image: "../assets/image";
+
+@font-face {
+  font-family: LeiKaiSho;
+  src: url("@{font}/DCLeiKaiSho-W5.otf") format("opentype");
+}
+@font-face {
+  font-family: Yuyuko Script;
+  src: url("@{font}/yuyuko.woff") format("WOFF");
+}
+@font-face {
+  font-family: Sarasa UI;
+  src: url("@{font}/sarasa-ui-sc-regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Sarasa Mono;
+  src: url("@{font}/sarasa-mono-sc-regular.ttf") format("truetype");
+}
+
+@yuyuko-theme: rgba(255, 133, 183, 0.8);
+@yuyuko-dress: rgb(96, 156, 255);
+@yuyuko-hat-logo: rgb(255, 50, 115);
+
+@active-color: @yuyuko-dress;
+@shadow-color: rgba(26, 26, 26, 0.4);
+@main-theme-light: @yuyuko-theme;
+@main-theme-dark: rgba(231, 81, 149, 0.4);
+
+@header-color: @main-theme-light;
+@header-hover-color: @main-theme-dark;
+
+@header-height: 10vh;
+@header-padding-left: 4vw;
+@header-padding-right: 0vw;
+@header-button-width: 12vh;
+
+.bg-app {
+  background: url("@{image}/bg-app.png") repeat top;
+  background-size: cover;
+}
+
+.inactive-page {}
+.active-page {
+  background-color: @header-hover-color;
+  box-shadow: 1.5px 0 0.5px 0.1px @shadow-color;
+}
+
+.vert-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-center {
+  .vert-center;
+  text-align: center;
+}
