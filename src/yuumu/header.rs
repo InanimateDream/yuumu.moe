@@ -10,32 +10,35 @@ pub struct Props {
 }
 
 pub struct Header {
-    wnd: Window,
+    prop: Props,
     link: ComponentLink<Self>,
-    onclick: Callback<Window>,
 }
 
 impl Component for Header {
     type Message = Window;
     type Properties = Props;
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Header { link, onclick: props.onclick, wnd: Home }
+    fn create(prop: Self::Properties, link: ComponentLink<Self>) -> Self {
+        Header { link, prop }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             wnd@_ => {
-                self.wnd = wnd;
-                self.onclick.emit(wnd);
+                self.prop.onclick.emit(wnd);
                 true
             },
         }
     }
 
+    fn change(&mut self, prop: Self::Properties) -> ShouldRender {
+       self.prop.curr_wnd = prop.curr_wnd;
+       true
+    }
+
     fn view(&self) -> Html {
         let is_current = |w|
-            if w == self.wnd { "active-page" } else { "inactive-page" };
+            if w == self.prop.curr_wnd { "active-page" } else { "inactive-page" };
 
         html! {
             <header>
