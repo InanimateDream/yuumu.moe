@@ -1,49 +1,59 @@
+mod comp;
+mod index;
+mod router;
 mod header;
-use yew::prelude::*;
+mod body;
+mod about;
 
-use header::Header;
+pub mod prelude {
+    pub use stdweb::js;
+    pub use yew::prelude::*;
+
+    use super::{
+        comp,
+        router,
+        header,
+        body,
+        about,
+    };
+    pub use comp::{
+        Term,
+        Theorem,
+        Incoming,
+    };
+    pub use router::route;
+    pub use header::Header;
+    pub use body::Body;
+    pub use about::About;
+    pub use super::{
+        Tab,
+        Page,
+        HOME_URL,
+        POST_URL,
+        PROJECT_URL,
+        ABOUT_URL
+    };
+}
+
+pub use index::Index as App;
 
 #[derive(Copy, Clone, PartialEq)]
-pub enum Window {
+pub enum Tab {
     Home,
     Post,
     Project,
     About,
 }
 
-pub struct Index {
-    link: ComponentLink<Self>,
-    curr_wnd: Window,
+#[derive(Debug, Copy, Clone, PartialEq)]
+pub enum Page {
+    Home,
+    Post,
+    Project,
+    About,
 }
 
-pub enum Msg {
-    HeaderClicked(Window)
-}
-
-impl Component for Index {
-    type Message = Msg;
-    type Properties = ();
-
-    fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Index { link, curr_wnd: Window::Home }
-    }
-
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        match msg {
-            Msg::HeaderClicked(wnd) => {
-                self.curr_wnd = wnd;
-                true
-            }
-        }
-    }
-
-    fn view(&self) -> Html {
-        html! {
-            <div id="yuumu">
-                <Header curr_wnd=self.curr_wnd
-                    onclick=self.link.callback(Msg::HeaderClicked) />
-            </div>
-        }
-    }
-}
-
+pub const HOME_URL: &str = "#/";
+pub const POST_URL: &str = "#/post";
+pub const PROJECT_URL: &str = "#/project";
+pub const ABOUT_URL: &str = "#/about";

@@ -1,5 +1,8 @@
 @import "common";
+@import "comp/theorem";
+@import "comp/incoming";
 @import "header";
+@import "about";
 
 body {
   .bg-app;
@@ -14,4 +17,10 @@ a {
 }
 a:active {
   color: @active-color;
+}
+
+#yuumu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

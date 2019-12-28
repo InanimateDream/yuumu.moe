@@ -1,0 +1,27 @@
+@import "../common";
+
+.theorem {
+  background-color: rgba(255, 255, 218, 0.6);
+  padding: 1vh 1.5vh 0.01vh 1.5vh;
+  font-family: "Computer Modern Serif", Sarasa UI, serif;
+
+  summary {
+    outline: none;
+  }
+
+  @keyframes open {
+    0% { opacity: 0; margin-left: -2vw }
+    100% { opacity: 1; margin-left: 0 }
+  }
+
+  details[open] summary ~ * {
+    animation: open 0.5s ease-in-out;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+  .body {
+    font-style: italic;
+  }
+}

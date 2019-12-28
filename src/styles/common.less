@@ -1,5 +1,5 @@
-@font: "../assets/font";
-@image: "../assets/image";
+@font: "../../assets/font";
+@image: "../../assets/image";
 
 @font-face {
   font-family: LeiKaiSho;
@@ -18,6 +18,7 @@
   src: url("@{font}/sarasa-mono-sc-regular.ttf") format("truetype");
 }
 
+@transp: rgba(0, 0, 0, 0);
 @yuyuko-theme: rgba(255, 133, 183, 0.8);
 @yuyuko-dress: rgb(96, 156, 255);
 @yuyuko-hat-logo: rgb(255, 50, 115);
@@ -25,15 +26,16 @@
 @active-color: @yuyuko-dress;
 @shadow-color: rgba(26, 26, 26, 0.4);
 @main-theme-light: @yuyuko-theme;
-@main-theme-dark: rgba(231, 81, 149, 0.4);
+@main-theme-dark: rgba(231, 81, 149, 0.51);
+@background-color: rgba(255, 248, 248, 0.8);
+@background-concrete: rgba(255, 227, 230, 0.9);
 
 @header-color: @main-theme-light;
 @header-hover-color: @main-theme-dark;
 
 @header-height: 10vh;
-@header-padding-left: 4vw;
-@header-padding-right: 0vw;
-@header-button-width: 12vh;
+@footer-height: 0vh;
+@content-height: 100vh - @header-height - @footer-height;
 
 .bg-app {
   background: url("@{image}/bg-app.png") repeat top;

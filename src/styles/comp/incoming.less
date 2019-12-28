@@ -1,0 +1,46 @@
+@import "../common";
+
+#incoming-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: @content-height;
+  background-color: @background-concrete;
+
+  #incoming-img {
+    #incoming {
+      width: 32vw;
+      border-radius: inherit;
+      padding: 0.5vh;
+    }
+
+    display: flex;
+    justify-content: center;
+    border: 0 solid @transp;
+    border-radius: 100%;
+    filter: grayscale(20%);
+    background: linear-gradient(to bottom right, @yuyuko-dress, @yuyuko-hat-logo) 100% 0;
+  }
+
+  #incoming-text {
+    margin: 3vh;
+    font-family: Yuyuko Script, serif;
+    font-size: 8vh;
+    color: @transp;
+
+    background: linear-gradient(60deg, transparent -10%, @yuyuko-dress, @yuyuko-hat-logo, transparent);
+    animation: loop 3s ease-in-out infinite;
+    background-size: 200% 100%;
+    background-clip: text;
+
+    @keyframes loop {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+  }
+}

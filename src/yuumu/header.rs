@@ -1,12 +1,11 @@
-use super::*;
-use Window::*;
+use super::prelude::*;
 
 #[derive(PartialEq, Properties)]
 pub struct Props {
     #[props(required)]
-    pub curr_wnd: Window,
+    pub tab: Tab,
     #[props(required)]
-    pub onclick: Callback<Window>,
+    pub onclick: Callback<Tab>,
 }
 
 pub struct Header {
@@ -15,30 +14,30 @@ pub struct Header {
 }
 
 impl Component for Header {
-    type Message = Window;
+    type Message = Tab;
     type Properties = Props;
 
     fn create(prop: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Header { link, prop }
+        Self { prop, link }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            wnd@_ => {
-                self.prop.onclick.emit(wnd);
+            tab@_ => {
+                self.prop.onclick.emit(tab);
                 true
             },
         }
     }
 
     fn change(&mut self, prop: Self::Properties) -> ShouldRender {
-       self.prop.curr_wnd = prop.curr_wnd;
+       self.prop.tab = prop.tab;
        true
     }
 
     fn view(&self) -> Html {
-        let is_current = |w|
-            if w == self.prop.curr_wnd { "active-page" } else { "inactive-page" };
+        let is_current = |tab|
+            if tab == self.prop.tab { "active-page" } else { "inactive-page" };
 
         html! {
             <header>
@@ -49,14 +48,14 @@ impl Component for Header {
                 </div>
                 <div class="placeholder"></div>
                 <nav>
-                    <a href="#/" class=("button", is_current(Home))
-                        onclick=self.link.callback(|_| Home)>{ "Home" }</a>
-                    <a href="#/post" class=("button", is_current(Post))
-                        onclick=self.link.callback(|_| Post)>{ "Post" }</a>
-                    <a href="#/project" class=("button", is_current(Project))
-                        onclick=self.link.callback(|_| Project)>{ "Project" }</a>
-                    <a href="#/about" class=("button", is_current(About))
-                        onclick=self.link.callback(|_| About)>{ "About" }</a>
+                    <a href=HOME_URL class=("button", is_current(Tab::Home))
+                        onclick=self.link.callback(|_| Tab::Home)>{ "Home" }</a>
+                    <a href=POST_URL class=("button", is_current(Tab::Post))
+                        onclick=self.link.callback(|_| Tab::Post)>{ "Post" }</a>
+                    <a href=PROJECT_URL class=("button", is_current(Tab::Project))
+                        onclick=self.link.callback(|_| Tab::Project)>{ "Project" }</a>
+                    <a href=ABOUT_URL class=("button", is_current(Tab::About))
+                        onclick=self.link.callback(|_| Tab::About)>{ "About" }</a>
                 </nav>
             </header>
         }

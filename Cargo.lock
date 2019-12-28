@@ -577,6 +577,7 @@ dependencies = [
 name = "yuumu_moe"
 version = "0.1.0"
 dependencies = [
+ "stdweb",
  "wasm-bindgen",
  "yew",
 ]

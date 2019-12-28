@@ -1,0 +1,56 @@
+@import "common";
+
+@margin: 5vh 5vw 5vh 5vw;
+@padding: 4vh;
+@line-height: 2vh;
+
+#about-main {
+  display: flex;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: @background-color;
+  border: 3px solid @main-theme-light;
+  border-radius: 5px;
+
+  margin: @margin;
+  padding: @padding;
+
+  .line {
+    height: 2px;
+    background-color: @main-theme-light;
+    margin-top: @line-height / 2;
+    margin-bottom: @line-height / 2;
+  }
+
+  #about-title {
+    text-align: center;
+    font-size: 200%;
+    margin-bottom: @padding - @line-height / 2;
+  }
+
+  #about-abstract {
+    font-size: 85%;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-bottom: @line-height;
+  }
+
+  .about-text {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  #list-identities {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: @padding - @line-height / 2;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}

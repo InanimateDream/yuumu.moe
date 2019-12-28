@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
       contentBase: dist_path,
       compress: argv.mode === 'production',
     },
-    entry: './init.js',
+    entry: './src/entry.js',
     output: {
       path: dist_path,
       filename: "yuumu.js",
@@ -32,8 +32,44 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.less$/,
-          loader: 'less-loader',
+          use: [
+            {
+              loader: 'style-loader',
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2
+              },
+            },
+            {
+              loader: 'postcss-loader',
+            },
+            {
+              loader: 'less-loader',
+            },
+          ]
         },
+        {
+          test: /\.(otf|woff|ttf)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[name]@[hash].[ext]',
+              outputPath: 'font/',
+            }
+          }
+        },
+        {
+          test: /\.(jpg|png)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[name]@[hash].[ext]',
+              outputPath: 'img/',
+            }
+          }
+        }
       ],
     },
     watch: argv.mode !== 'production'
