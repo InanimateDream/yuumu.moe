@@ -6,7 +6,7 @@ use stdweb::web::{
 use stdweb::web::event::HashChangeEvent;
 
 pub fn route(callback: Callback<Page>) {
-    window().add_event_listener(move |_: HashChangeEvent| {
+    let dispatch = move || {
         let hash = window().location().unwrap().hash().unwrap();
         match hash.as_str() {
             HOME_URL => callback.emit(Page::Home),
@@ -15,5 +15,10 @@ pub fn route(callback: Callback<Page>) {
             ABOUT_URL => callback.emit(Page::About),
             _ => {}
         }
+    };
+    dispatch();
+    window().add_event_listener(move |_: HashChangeEvent| {
+        dispatch();
     });
 }
+

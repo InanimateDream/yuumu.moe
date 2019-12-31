@@ -53,6 +53,17 @@ pub enum Page {
     About,
 }
 
+impl Into<Tab> for Page {
+    fn into(self) -> Tab {
+        match self {
+            Page::Home => Tab::Home,
+            Page::Post => Tab::Post,
+            Page::Project => Tab::Project,
+            Page::About => Tab::About,
+        }
+    }
+}
+
 pub const HOME_URL: &str = "#/";
 pub const POST_URL: &str = "#/post";
 pub const PROJECT_URL: &str = "#/project";

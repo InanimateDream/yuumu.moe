@@ -4,30 +4,22 @@ use super::prelude::*;
 pub struct Props {
     #[props(required)]
     pub tab: Tab,
-    #[props(required)]
-    pub onclick: Callback<Tab>,
 }
 
 pub struct Header {
     prop: Props,
-    link: ComponentLink<Self>,
 }
 
 impl Component for Header {
-    type Message = Tab;
+    type Message = ();
     type Properties = Props;
 
-    fn create(prop: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Self { prop, link }
+    fn create(prop: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Self { prop }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        match msg {
-            tab@_ => {
-                self.prop.onclick.emit(tab);
-                true
-            },
-        }
+    fn update(&mut self, _: Self::Message) -> ShouldRender {
+        true
     }
 
     fn change(&mut self, prop: Self::Properties) -> ShouldRender {
@@ -48,14 +40,10 @@ impl Component for Header {
                 </div>
                 <div class="placeholder"></div>
                 <nav>
-                    <a href=HOME_URL class=("button", is_current(Tab::Home))
-                        onclick=self.link.callback(|_| Tab::Home)>{ "Home" }</a>
-                    <a href=POST_URL class=("button", is_current(Tab::Post))
-                        onclick=self.link.callback(|_| Tab::Post)>{ "Post" }</a>
-                    <a href=PROJECT_URL class=("button", is_current(Tab::Project))
-                        onclick=self.link.callback(|_| Tab::Project)>{ "Project" }</a>
-                    <a href=ABOUT_URL class=("button", is_current(Tab::About))
-                        onclick=self.link.callback(|_| Tab::About)>{ "About" }</a>
+                    <a href=HOME_URL class=("button", is_current(Tab::Home))>{ "Home" }</a>
+                    <a href=POST_URL class=("button", is_current(Tab::Post))>{ "Post" }</a>
+                    <a href=PROJECT_URL class=("button", is_current(Tab::Project))>{ "Project" }</a>
+                    <a href=ABOUT_URL class=("button", is_current(Tab::About))>{ "About" }</a>
                 </nav>
             </header>
         }
