@@ -92,14 +92,17 @@ impl Component for About {
                     <a href="mailto://MLTT2HoTT@outlook.com">
                         <i class="fas fa-at fa-2x"></i>
                     </a>
+                    <a href="https://github.com/YuumuKonpaku">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
                     <a href="https://t.me/Cistus_Albidus">
                         <i class="fab fa-telegram fa-2x"></i>
                     </a>
                     <a href="https://twitter.com/InanimateDream_">
                         <i class="fab fa-twitter fa-2x"></i>
                     </a>
-                    <a href="https://github.com/YuumuKonpaku">
-                        <i class="fab fa-github fa-2x"></i>
+                    <a href="https://www.zhihu.com/people/wu-shi-kui-19" class="about-zhihu">
+                        <i class="fab fa-zhihu fa-2x"></i>
                     </a>
                 </section>
                 <section id="list-friends">

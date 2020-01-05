@@ -58,3 +58,12 @@
   .vert-center;
   text-align: center;
 }
+
+.zhihu-patch(@width) {
+  width: @width;
+  .fa-zhihu {
+    width: @width / 1.6;
+    overflow-x: hidden;
+    transform: scale(1.6, 1.6) translateX(16%);
+  }
+}
