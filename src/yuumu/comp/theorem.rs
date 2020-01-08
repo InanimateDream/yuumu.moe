@@ -1,5 +1,5 @@
 use super::*;
-#[derive(Properties)]
+#[derive(Clone, Properties)]
 pub struct Props {
     #[props(required)]
     pub title: String,

@@ -102,7 +102,9 @@ impl Component for About {
                         <i class="fab fa-twitter fa-2x"></i>
                     </a>
                     <a href="https://www.zhihu.com/people/wu-shi-kui-19" class="about-zhihu">
-                        <i class="fab fa-zhihu fa-2x"></i>
+                        <div class="zhihu-box">
+                            <i class="fab fa-zhihu fa-2x"></i>
+                        </div>
                     </a>
                 </section>
                 <section id="list-friends">

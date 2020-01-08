@@ -36,7 +36,6 @@ impl Component for Index {
             <div id="yuumu">
                 <Header tab=tab />
                 <Body page=self.curr_page />
-                <div id="footer"></div>
             </div>
         }
     }
