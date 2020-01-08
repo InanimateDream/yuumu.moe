@@ -1,13 +1,8 @@
-[package]
-name = "yuumu_moe"
-version = "0.1.0"
-authors = ["YuumuKonpaku <MLTT2HoTT@outlook.com>"]
-edition = "2018"
+[workspace]
+members = [
+    'fe',
+]
 
-[lib]
-crate-type = ["cdylib", "rlib"]
-
-[dependencies]
-wasm-bindgen = "0.2.58"
-stdweb = "0.4.20"
-yew = "0.11.0"
+[profile.release]
+opt-level = 'z'
+lto = true
