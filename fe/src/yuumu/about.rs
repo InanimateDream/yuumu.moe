@@ -88,6 +88,17 @@ impl Component for About {
                     </ul>
                 </section>
                 <div class="line"></div>
+                <section class="about-text" id="list-friends">
+                    <div class="title"> { "友情链接" } </div>
+                    <ul>
+                        <li><a class="link" href="http://cmath.cc/"> { "CMath" } </a></li>
+                        <li><a class="link" href="https://i.nebula.moe/"> { "奇想齋" } </a></li>
+                        <li><a class="link" href="https://blog.0xbbc.com/"> { "0xBBC" } </a></li>
+                        <li><a class="link" href="https://ice1000.org/"> { "Intermediate Representation" } </a></li>
+                        <li><a class="link" href="https://tirpitz.xyz/"> { "tiz's blog" } </a></li>
+                    </ul>
+                </section>
+                <div class="line"></div>
                 <section id="list-identities">
                     <a href="mailto://MLTT2HoTT@outlook.com">
                         <i class="fas fa-at fa-2x"></i>
@@ -106,8 +117,6 @@ impl Component for About {
                             <i class="fab fa-zhihu fa-2x"></i>
                         </div>
                     </a>
-                </section>
-                <section id="list-friends">
                 </section>
             </div>
         }
